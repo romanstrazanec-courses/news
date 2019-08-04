@@ -12,4 +12,19 @@ class ItemModel {
   final int score;
   final String title;
   final int descendants;
+
+  ItemModel.fromJSON(Map<String, dynamic> parsedJSON)
+      : id = parsedJSON["id"],
+        deleted = parsedJSON["deleted"],
+        type = parsedJSON["type"],
+        by = parsedJSON["by"],
+        time = parsedJSON["time"],
+        text = parsedJSON["text"],
+        dead = parsedJSON["dead"],
+        parent = parsedJSON["parent"],
+        kids = parsedJSON["kids"],
+        url = parsedJSON["url"],
+        score = parsedJSON["score"],
+        title = parsedJSON["title"],
+        descendants = parsedJSON["descendants"];
 }
