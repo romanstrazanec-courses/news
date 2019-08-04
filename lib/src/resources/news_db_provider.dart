@@ -20,14 +20,14 @@ class NewsDbProvider {
         newDb.execute("""
           CREATE TABLE Items (
             id INTEGER PRIMARY KEY,
+            deleted INTEGER,
             type TEXT,
             by TEXT,
             time INTEGER,
             text TEXT,
+            dead INTEGER,
             parent INTEGER,
             kids BLOB,
-            dead INTEGER,
-            deleted INTEGER,
             url TEXT,
             score INTEGER,
             title TEXT,
@@ -47,5 +47,9 @@ class NewsDbProvider {
     );
 
     return (maps.length > 0) ? ItemModel.fromDB(maps.first) : null;
+  }
+
+  addItem(ItemModel item) {
+    return db.insert("Items", item.toMapForDB());
   }
 }
