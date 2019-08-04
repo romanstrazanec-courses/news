@@ -8,7 +8,7 @@ import 'package:path_provider/path_provider.dart';
 import 'repository.dart';
 import '../models/item_model.dart';
 
-class NewsDbProvider implements Source {
+class NewsDbProvider implements Source, Cache {
   Database db;
 
   void init() async {
