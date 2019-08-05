@@ -6,8 +6,16 @@ import '../resources/repository.dart';
 class StoriesBloc {
   final _repository = Repository();
   final _topIds = PublishSubject<List<int>>();
+  final _items = BehaviorSubject<int>();
+  Observable<Map<int, Future<ItemModel>>> items;
 
   Observable<List<int>> get topIds => _topIds.stream;
+
+  Function(int) get fetchItem => _items.sink.add;
+
+  StoriesBloc() {
+    items = _items.stream.transform(_itemsTransformer());
+  }
 
   fetchTopIds() async {
     final ids = await _repository.fetchTopIds();
@@ -26,5 +34,6 @@ class StoriesBloc {
 
   dispose() {
     _topIds.close();
+    _items.close();
   }
 }
