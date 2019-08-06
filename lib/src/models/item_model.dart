@@ -17,14 +17,14 @@ class ItemModel {
 
   ItemModel.fromJSON(Map<String, dynamic> parsedJSON)
       : id = parsedJSON["id"],
-        deleted = parsedJSON["deleted"],
+        deleted = parsedJSON["deleted"] ?? false,
         type = parsedJSON["type"],
         by = parsedJSON["by"],
         time = parsedJSON["time"],
-        text = parsedJSON["text"],
-        dead = parsedJSON["dead"],
+        text = parsedJSON["text"] ?? '',
+        dead = parsedJSON["dead"] ?? false,
         parent = parsedJSON["parent"],
-        kids = parsedJSON["kids"],
+        kids = parsedJSON["kids"] ?? [],
         url = parsedJSON["url"],
         score = parsedJSON["score"],
         title = parsedJSON["title"],
