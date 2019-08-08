@@ -7,9 +7,9 @@ class LoadingContainer extends StatelessWidget {
       children: <Widget>[
         ListTile(
           title: buildContainer(),
-          subTitle: buildContainer(),
+          subtitle: buildContainer(),
         ),
-        Divider(8.0),
+        Divider(height: 8.0),
       ],
     );
   }
