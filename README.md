@@ -1,16 +1,5 @@
-# news
+# Flutter Hacker News
 
-A new Flutter project.
+A flutter app from [Udemy](https://www.udemy.com) course [Dart and Flutter: The Complete Developer's Guide](https://www.udemy.com/course/dart-and-flutter-the-complete-developers-guide/) created by [Stephen Grider](https://www.udemy.com/user/sgslo/).
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Purpose of the app is to fetch data from https://news.ycombinator.com using [Hacker News API](https://github.com/HackerNews/API), show the content of the page on the main screen and show details on individual topics.
