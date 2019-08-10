@@ -20,17 +20,20 @@ class NewsListTile extends StatelessWidget {
           future: snapshot.data[itemId],
           builder: (context, AsyncSnapshot<ItemModel> itemSnapshot) =>
               itemSnapshot.hasData
-                  ? buildTile(itemSnapshot.data)
+                  ? buildTile(context, itemSnapshot.data)
                   : LoadingContainer(),
         );
       },
     );
   }
 
-  Widget buildTile(ItemModel item) {
+  Widget buildTile(BuildContext context, ItemModel item) {
     return Column(
       children: <Widget>[
         ListTile(
+          onTap: () {
+            Navigator.pushNamed(context, '/${item.id}');
+          },
           title: Text(item.title),
           subtitle: Text("${item.score} point${item.score == 1 ? '' : 's'}"),
           trailing: Column(
