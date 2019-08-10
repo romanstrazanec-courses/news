@@ -20,7 +20,11 @@ class App extends StatelessWidget {
 
   Route routes(RouteSettings settings) {
     return (settings.name == '/')
-        ? MaterialPageRoute(builder: (BuildContext context) => NewsList())
+        ? MaterialPageRoute(builder: (BuildContext context) {
+            final storiesBloc = StoriesProvider.of(context);
+            storiesBloc.fetchTopIds();
+            return NewsList();
+          })
         : MaterialPageRoute(
             builder: (BuildContext context) {
               final commentsBloc = CommentsProvider.of(context);
